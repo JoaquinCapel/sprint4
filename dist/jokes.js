@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
-    const headers = { 'Accept': 'application/json' };
     const containerJoke = document.getElementById('joke-container');
     const newJoke = document.querySelector('.btn');
     const ratingButtons = document.querySelectorAll('.btn-smiley');
@@ -26,6 +25,34 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
     ratingButtons.forEach(button => {
         button.disabled = true;
     });
+    function dadJoke() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const dadJokeURL = 'https://icanhazdadjoke.com/';
+            const headers = { 'Accept': 'application/json' };
+            try {
+                const res = yield fetch(dadJokeURL, { headers });
+                const data = yield res.json();
+                return data;
+            }
+            catch (error) {
+                throw error;
+            }
+        });
+    }
+    function chuckNorrisJoke() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const chuckNorrisURL = 'https://api.chucknorris.io/jokes/random';
+            try {
+                const res = yield fetch(chuckNorrisURL);
+                const data = yield res.json();
+                const joke = data.value;
+                return { joke };
+            }
+            catch (error) {
+                throw error;
+            }
+        });
+    }
     if (newJoke) {
         newJoke.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
             try {
@@ -50,13 +77,12 @@ document.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, vo
     }
     function randomJoke() {
         return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const res = yield fetch('https://icanhazdadjoke.com/', { headers });
-                const data = yield res.json();
-                return data;
+            const random = Math.random();
+            if (random < 0.5) {
+                return chuckNorrisJoke();
             }
-            catch (error) {
-                throw error;
+            else {
+                return dadJoke();
             }
         });
     }
