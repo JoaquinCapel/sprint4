@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (userRating !== null) {
                     rateJoke(userRating);
-                    userRating = null; // Restablecer la puntuación del usuario
+                    userRating = null; // Restablece la puntuación del usuario
                 }
             } catch (error) {
                 console.error('Error al obtener el chiste', error);
