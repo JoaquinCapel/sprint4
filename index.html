@@ -12,28 +12,48 @@
 
 <body>
     <div id="weather-container"></div>
-    <div class="container text-center w-25 mt-4">
-        <h4>Ready for laugh? 🤣</h4>
-        <div id="joke-container"></div>
-        <p>What do you think about our joke?</p>
-        <div class="smileys">
-            <button type="submit" class="btn-smiley" data-score="1"><img src="img/triste1.png"
-                    alt="emoticono triste"></button>
-            <button type="submit" class="btn-smiley" data-score="2"><img src="img/sorprendido1.png"
-                    alt="emoticono sorprendido"></button>
-            <button type="submit" class="btn-smiley" data-score="3"><img src="img/feliz1.png"
-                    alt="emoticono feliz"></button>
+
+    <section class="row">
+        <div class="blob col-12 col-md-12">
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="100%" id="blobSvg">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(254, 0, 242);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(251, 2, 128);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d" dur="10100ms" repeatCount="indefinite"
+                        values="M430.5,355Q371,460,254,453.5Q137,447,74,348.5Q11,250,75,154Q139,58,253,52.5Q367,47,428.5,148.5Q490,250,430.5,355Z;
+                        M402.5,341.5Q356,433,242.5,446Q129,459,82,354.5Q35,250,97,171Q159,92,256,81.5Q353,71,401,160.5Q449,250,402.5,341.5Z;
+                        M390.5,332.5Q345,415,250,415Q155,415,78.5,332.5Q2,250,74.5,160.5Q147,71,243,84Q339,97,387.5,173.5Q436,250,390.5,332.5Z;
+                        M395,330.5Q343,411,238,431.5Q133,452,97,351Q61,250,110.5,172Q160,94,261,75.5Q362,57,404.5,153.5Q447,250,395,330.5Z;
+                        M409.5,355.5Q372,461,260,443.5Q148,426,101,338Q54,250,91,144.5Q128,39,243,51Q358,63,402.5,156.5Q447,250,409.5,355.5Z;
+                        M430.5,355Q371,460,254,453.5Q137,447,74,348.5Q11,250,75,154Q139,58,253,52.5Q367,47,428.5,148.5Q490,250,430.5,355Z;"></animate>
+                </path>
+            </svg>
+
+            <!-- Tu contenido aquí -->
+            <div class="container-fluid text-center w-20">
+                <h4>Ready for laugh? 🤣</h4>
+                <div id="joke-container"></div>
+                <p>What do you think about our joke?</p>
+                <div class="smileys">
+                    <button type="submit" class="btn-smiley" data-score="1"><img src="img/triste1.png"
+                            alt="emoticono triste"></button>
+                    <button type="submit" class="btn-smiley" data-score="2"><img src="img/sorprendido1.png"
+                            alt="emoticono sorprendido"></button>
+                    <button type="submit" class="btn-smiley" data-score="3"><img src="img/feliz1.png"
+                            alt="emoticono feliz"></button>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">New Joke</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">New Joke</button>
-
-    </div>
-
-
+    </section>
 
     <script src="dist/jokes.js"></script>
     <script src="dist/weather.js"></script>
-
-
 
 </body>
 
